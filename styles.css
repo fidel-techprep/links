@@ -1,127 +1,128 @@
-/* Reset */
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-/* html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}  */
-/* HTML5 display-role reset for older browsers */
-/* article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+:root {
+  --main-bg-color: #774237;
+  --card-bg-color: #fcfcfc;
+  --sec-bg-color: #642c2c;
+  --button-color: #848696;
+  --other-color: #8f9d9c;
+  --shadow-color: 11deg 45% 13%;
+  --shadow-elevation-low:
+    0.3px 0.6px 0.6px hsl(var(--shadow-color) / 0.81),
+    0.5px 1.1px 1.1px -1.9px hsl(var(--shadow-color) / 0.62),
+    1.5px 3.2px 3.2px -3.9px hsl(var(--shadow-color) / 0.42);
+  --shadow-elevation-medium:
+    0.3px 0.6px 0.6px hsl(var(--shadow-color) / 0.68),
+    0.6px 1.4px 1.4px -1px hsl(var(--shadow-color) / 0.58),
+    1.5px 3.2px 3.2px -1.9px hsl(var(--shadow-color) / 0.49),
+    3.5px 7.6px 7.7px -2.9px hsl(var(--shadow-color) / 0.39),
+    7.4px 16px 16.1px -3.9px hsl(var(--shadow-color) / 0.29);
+    --shadow-elevation-high:
+    0.3px 0.6px 0.6px hsl(var(--shadow-color) / 0.63),
+    1.1px 2.3px 2.3px -0.4px hsl(var(--shadow-color) / 0.59),
+    2px 4.4px 4.4px -0.9px hsl(var(--shadow-color) / 0.54),
+    3.5px 7.7px 7.7px -1.3px hsl(var(--shadow-color) / 0.5),
+    6px 12.9px 13px -1.7px hsl(var(--shadow-color) / 0.45),
+    9.6px 20.9px 21px -2.2px hsl(var(--shadow-color) / 0.41),
+    15px 32.5px 32.8px -2.6px hsl(var(--shadow-color) / 0.36),
+    22.3px 48.3px 48.7px -3px hsl(var(--shadow-color) / 0.32),
+    32px 69.3px 69.8px -3.5px hsl(var(--shadow-color) / 0.27),
+    44.4px 96.2px 96.9px -3.9px hsl(var(--shadow-color) / 0.22);
+
 }
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-} */
-/* Style */
-* {
-  border: thin red solid;
-}
-* body {
-  padding: 10px 10px;
-  background-color: #676767;
+body { 
+  background-color: var(--main-bg-color);
+  opacity: 1;
+  background: radial-gradient(circle, transparent 20%, var(--main-bg-color) 20%, var(--main-bg-color) 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, var(--main-bg-color) 20%, var(--main-bg-color) 80%, transparent 80%, transparent) 30px 30px, linear-gradient( var(--sec-bg-color) 2.4000000000000004px, transparent 2.4000000000000004px) 0 -1.2000000000000002px, linear-gradient(90deg, var(--sec-bg-color) 2.4000000000000004px, var(--main-bg-color) 2.4000000000000004px) -1.2000000000000002px 0;
+  background-size: 60px 60px, 60px 60px, 30px 30px, 30px 30px;
+margin: 0;
+  padding: 0px;
   display: flex;
   justify-content: center;
-  font-family: "Quattrocento Sans", sans-serif;
-  font-size: 17px;
+  align-items: center;
+  font-size: calc(15px + 0.390625vw);
+  width: 100vw;
+  height: 100vh
 }
-* body .items {
+.items {
+  background-color: var(--card-bg-color);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  gap: 30px;
+  flex: 1 1 0;
+  gap: 3vh;
   padding: 25px;
   text-align: center;
-  max-width: 640px;
+  max-width: 70vh;
+  min-width: 30vw;
   justify-content: center;
-  background-color: #dddddc;
+  background-color: #fcfcfc;
+  box-shadow: var(--shadow-elevation-high);
+  border-radius: 10px;  
 }
-* body .items .banner {
+.banner {
   display: flex;
   justify-content: center;
+
 }
-* body .items .banner .prof-pic-frame {
-  width: 128px;
-  height: 128px;
-  object-fit: auto;
-  border-radius: 128px;
-  overflow: hidden;
+
+.name-social-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 3vh 0;
+  max-height: inherit;
+  
+
 }
-* body .items .banner .prof-pic-frame .prof-pic {
-  width: 100%;
-  height: 100%;
-  transform: scale(1.2);
+.prof-pic {
+  width: 20vw;
+  height: 20vw;
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  margin: 3vh 0;
 }
-* body .items .name {
-  color: #070706;
-  flex-grow: 1;
-  justify-content: center;
-  /* font-family: 'Catamaran', sans-serif;
-  font-size: 48px; */
+
+.name {
+  color: var(--main-bg-color);
   font-family: "Ovo", serif;
   font-size: 42px;
 }
-* body .items .social-icons {
+.social-icons {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-* body .items .social-icons a {
+.social-icons a {
   display: flex;
-  color: #191917;
+  color: var(--button-color);
   text-decoration: none;
   margin: 0 25px;
   align-items: center;
 }
-* body .items .link {
-  background-color: none;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-}
-* body .items .link .thumbnail {
+.thumbnail {
   width: 48px;
   height: 48px;
   border-radius: 48px;
   object-fit: cover;
   margin-left: 5px;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
 }
-* body .items .link a {
-  color: #001e1d;
+.link {
+  background: #c49f88;
+  display: flex;
+  align-items: center;
+  justify-items: start;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: var(--shadow-elevation-low);
+  flex: 0 1 0;
+
+}
+.link a {
+  color: #fcfcfc;
   text-decoration: none;
   flex-grow: 1;
+  text-align: left;
+  padding-left: 5px;
+  font-family: "Quattrocento Sans", sans-serif;
+  font-size: 1rem;
 }
