@@ -1,9 +1,9 @@
 :root {
-  --main-bg-color: #774237;
-  --card-bg-color: #fcfcfc;
-  --sec-bg-color: #642c2c;
-  --button-color: #848696;
-  --other-color: #8f9d9c;
+  --main-red: #774237;
+  --white: #fcfcfc;
+  --dark-red: #642c2c;
+  --bluegray: #848696;
+  
   --shadow-color: 11deg 45% 13%;
   --shadow-elevation-low:
     0.3px 0.6px 0.6px hsl(var(--shadow-color) / 0.81),
@@ -26,35 +26,36 @@
     22.3px 48.3px 48.7px -3px hsl(var(--shadow-color) / 0.32),
     32px 69.3px 69.8px -3.5px hsl(var(--shadow-color) / 0.27),
     44.4px 96.2px 96.9px -3.9px hsl(var(--shadow-color) / 0.22);
-
 }
+
+* {
+  margin: 0; 
+  padding: 0;
+}
+
 body { 
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(15px + 0.390625vw);
   width: 100vw;
   height: 100vh;
-  padding: 0;
-  gap: 0;
-  margin: 0;
 }
+
 .pattern {
-  background-color: var(--main-bg-color);
+  background-color: var(--main-red);
   opacity: 1;
-  background: radial-gradient(circle, transparent 20%, var(--main-bg-color) 20%, var(--main-bg-color) 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, var(--main-bg-color) 20%, var(--main-bg-color) 80%, transparent 80%, transparent) 30px 30px, linear-gradient( var(--sec-bg-color) 2.4000000000000004px, transparent 2.4000000000000004px) 0 -1.2000000000000002px, linear-gradient(90deg, var(--sec-bg-color) 2.4000000000000004px, var(--main-bg-color) 2.4000000000000004px) -1.2000000000000002px 0;
+  background: radial-gradient(circle, transparent 20%, var(--main-red) 20%, var(--main-red) 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, var(--main-red) 20%, var(--main-red) 80%, transparent 80%, transparent) 30px 30px, linear-gradient( var(--dark-red) 2.4000000000000004px, transparent 2.4000000000000004px) 0 -1.2000000000000002px, linear-gradient(90deg, var(--dark-red) 2.4000000000000004px, var(--main-red) 2.4000000000000004px) -1.2000000000000002px 0;
   background-size: 60px 60px, 60px 60px, 30px 30px, 30px 30px;
-  margin: 0;
-  padding: 0px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
-  width: 102vw;
-  height: 102vh;
+  width: 100vw;
+  height: 100vh;
 }
+
 .items {
-  background-color: var(--card-bg-color);
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   flex: 1 1 0;
@@ -63,16 +64,14 @@ body {
   max-width: 70vh;
   min-width: 30vw;
   justify-content: center;
-  background-color: #fcfcfc;
+  background-color: var(--white);
   box-shadow: var(--shadow-elevation-high);
   border-radius: 10px;
-  margin: 0;
-    
 }
+
 .banner {
   display: flex;
   justify-content: center;
-  margin: 0;
 }
 
 .name-social-container {
@@ -80,9 +79,9 @@ body {
   flex-direction: column;
   justify-content: space-around;
   padding: 3vh 0;
-  max-height: inherit;
-  
+  max-height: inherit; 
 }
+
 .prof-pic {
   width: 22vw;
   height: 22vw;
@@ -91,40 +90,47 @@ body {
   border-radius: 50%;
   margin: 3vh 0;
 }
+
 .divider{
-  height: 15vh;
+  height:calc(70px + (150 - 65) * ((100vw - 375px) / (2560 - 375)));
   width: 3px;
-  background-image: linear-gradient(180deg, #8f5043 ,var(--main-bg-color));
+  background-image: linear-gradient(180deg, #8f5043 ,var(--main-red));
   margin: 0 3vw;
-  padding: 0;
   align-self: center;
   box-shadow: var(--shadow-elevation-low);
 }
+
 .name {
-  color: var(--main-bg-color);
-  font-family: "Ovo", serif;
-  font-size: 3rem;
+  color: var(--main-red);
+  font-family: "Rufina", serif;
+  font-size: calc(44px + (44 - 26) * ((100vw - 375px) / (2560 - 375)));
+  text-shadow: .5px 1px 1px #9f847e;
 }
+
 .social-icons {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
 .social-icons a {
   display: flex;
-  color: var(--button-color);
+  color: var(--bluegray);
   text-decoration: none;
   margin: 0 25px;
   align-items: center;
 }
+
 .thumbnail {
   width: 48px;
   height: 48px;
   border-radius: 48px;
   object-fit: cover;
   margin-left: 10px;
-
+  border: 1px solid transparent;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
 }
+
 .link {
   background: linear-gradient(#d0ae99 ,#c49f88, #b2917c);
   display: flex;
@@ -137,12 +143,14 @@ body {
   margin-bottom: 2.5vh;
 
 }
+
 .link a {
-  color: #fcfcfc;
+  color: var(--white);
   text-decoration: none;
+  text-shadow: 1px 1px 1px #ab8b76;
   flex-grow: 1;
   text-align: left;
   padding-left: 10px;
-  font-family: "Quattrocento Sans", sans-serif;
-  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+  font-size: calc(16px + (16 - 14) * ((100vw - 375px) / (2560 - 375)));;
 }
